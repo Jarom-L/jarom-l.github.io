@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0; /*removes default margin*/
+            display: flex; /*makes divs line up in a row*/
+        }
+        @keyframes shaka {
+            0% { top: 100%; left: 50%; transform: translate(-50%, 0%) rotate(0deg); }
+            20% { top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); }
+            30% { top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-20deg); }
+            50% { top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(20deg); }
+            60% { top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); }
+            80% { top: 100%; left: 50%; transform: translate(-50%, 0%) rotate(0deg); }
+            100% { top: 100%; left: 50%; transform: translate(-50%, 0%) rotate(0deg); }
+        }
+        #hand {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://th.bing.com/th/id/OIP.ZYNPxtq_spyYAJzywR3u_wHaGa?w=239&h=207&c=7&r=0&o=7&pid=1.7&rm=3');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: shaka 3s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="hand"></div>
+</body>
+</html>

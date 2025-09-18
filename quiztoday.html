@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;              /* Remove default margin */
+            min-height: 100vh;      /* Full viewport height */
+            display: flex;          /* Enable flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+            background-color: rgb(27, 196, 50);
+        }
+
+        .container {
+            position: relative;      /* Enable positioning for child elements */
+            width: auto;            /* Width based on content */
+            min-width: 200px;       /* Minimum width */
+            height: auto;           /* Height based on content */
+            padding: 20px 40px;     /* Vertical and horizontal padding */
+            overflow: hidden;       /* Hide overflow for sliding effect */
+            border-radius: 10px;    /* Rounded corners */
+        }
+
+        #text {
+            font-size: 50px;        /* Sets the font size */
+            color: rgb(255, 235, 199);            /* Sets the text color to blue */
+            text-align: center;     /* Center text alignment */
+            position: relative;     /* Enable z-index */
+            z-index: 1;            /* Place behind the sliding cover */
+        }
+
+        #textreveal {
+            position: absolute;     /* Position absolutely within container */
+            top: 0;                /* Align to top of container */
+            right: 0;              /* Align to right edge */
+            width: 0%;             /* Start with no width */
+            height: 100%;          /* Full height of container */
+            background-color: rgb(27, 196, 50); /* green background color */
+            /* opacity: 0.8; */     /* Slightly transparent */
+            z-index: 2;           /* Place in front of text */
+            animation: fillReveal 3s alternate infinite;  /* Apply fill animation */
+            animation-delay: 2s;   /* Wait 2 seconds before starting */
+        }
+
+        @keyframes fillReveal {
+            0% { 
+                width: 0%;        /* Start with no width */
+            }
+            100% { 
+                width: 100%;      /* Fill to full width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="text">This text will be revealed</div>
+        <div id="textreveal"></div>
+    </div>
+</body>
+</html>
