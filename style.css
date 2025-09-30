@@ -249,3 +249,164 @@ html, body {
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Ensure the html/body occupy full height and have no default margin (no #root) */
+html, body {
+    /* set height so 100%/100vh calculations work because my windows are cooked */
+    height: 100%;
+    /* remove browser default margin */
+    margin: 0;
+    overflow: hidden; /* prevent scrolling */
+}
+
+/* Title text styling container */
+#titletext {
+    /* main text color for the title */
+    color: gold;
+    /* basic font size for the title (use simple px value for broad support) */
+    font-size: 5rem;
+    /* center text horizontally */
+    text-align: center;
+    /* serif font stack for the title */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* reset default margins so flex centering works predictably */
+    margin: 0; /* reset margins so flex centering is reliable */
+    /* soft shadow to improve legibility on varied backgrounds */
+    text-shadow: 2px 2px 4px #000000;
+    /* keep stacking simple — no special z-indexing required */
+    /* small internal spacing to avoid text touching edges */
+    padding: 0.5rem;
+    /* limit width so long titles wrap nicely on narrow viewports */
+    max-width: 92%;
+}
+#button_to_previous_page {
+    /* display button as aligned to the BOTTOM LEFT side of the page */
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    /* allow the button to size to its content while behaving like an inline element */
+    display: inline-block;
+    /* vertical spacing and horizontal centering via auto margins */
+    margin: 1rem auto 0 auto;
+    /* comfortable click/tap padding */
+    padding: 10px 20px;
+    /* basic button text size */
+    font-size: 18px;
+    /* button background color (green) */
+    background-color: #00af06; /* Green */
+    /* button text color */
+    color: white;
+    /* remove default button border */
+    border: none;
+    /* rounded corners for a friendlier look */
+    border-radius: 5px;
+    /* change cursor to pointer to indicate interactivity */
+    cursor: pointer;
+    /* center text inside the button */
+    text-align: center;
+    /* no special stacking required */
+}
+/* Hover state for the previous-page button to indicate interaction */
+#button_to_previous_page:hover {
+    /* darker green on hover */
+    background-color: #005a05;
+}
+
+#Button_to_next_page {
+    /* display button as aligned to the BOTTOM RIGHT side of the page */
+    position: absolute;
+    top: 85%;
+    left: 85%;
+    /* allow the button to size to its content while behaving like an inline element */
+    display: inline-block;
+    /* vertical spacing and horizontal centering via auto margins */
+    margin: 1rem auto 0 auto;
+    /* comfortable click/tap padding */
+    padding: 10px 20px;
+    /* basic button text size */
+    font-size: 18px;
+    /* button background color (green) */
+    background-color: #00af06; /* Green */
+    /* button text color */
+    color: white;
+    /* remove default button border */
+    border: none;
+    /* rounded corners for a friendlier look */
+    border-radius: 5px;
+    /* change cursor to pointer to indicate interactivity */
+    cursor: pointer;
+    /* center text inside the button */
+    text-align: center;
+    /* no special stacking required */
+}
+
+/* Hover state for the next-page button to indicate interaction */
+#Button_to_next_page:hover {
+    /* darker green on hover */
+    background-color: #005a05;
+}
+
+/* Full-viewport hero/cover using basic properties */
+#titlecover {
+    /* position relative so children can be placed inside normally */
+    position: relative;
+    /* use viewport height so the cover fills the window */
+    height: 100vh;
+    /* full width of the page */
+    width: 100%;
+    /* center children with flexbox (widely supported basic layout) */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    /* background image for the cover */
+    background-image: url(Screenshot_2025-09-18_210025-removebg-preview.png);
+    /* prevent repeating the background image */
+    background-repeat: no-repeat;
+    /* make image roughly 30% of page width while keeping aspect ratio */
+    background-size: 30% auto;
+    /* center the background image */
+    background-position: center;
+}
+
+#page1_man {
+    /* prevent image from repeating and just fill screen once */
+    background-repeat: no-repeat;
+    background-size: contain; /* scale the image to fit within the container */
+    /* position relative so children can be placed inside normally */
+    position: relative;
+    /* use viewport height so the cover fills the window */
+    height: 100vh;
+    /* full width of the page */
+    width: 100%;
+    /* center children with flexbox (widely supported basic layout) */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    /* background image for the cover */
+    background-image: url(Page1_walk.png);
+}
+
+#pg1_textbox {
+    /* position relative so children can be placed inside normally */
+    position: relative;
+    /* use viewport height so the cover fills the window */
+    height: 20vh;
+    /* full width of the page */
+    width: 100%;
+    /* center children with flexbox (widely supported basic layout) */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    /* background color for the textbox */
+    background-color: black;
+    /* text color for the textbox */
+    color: white;
+    /* basic font size for the textbox */
+    font-size: 2rem;
+    /* serif font stack for the textbox */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* reset default margins so flex centering works predictably */
+    margin: 0; /* reset margins so flex centering is reliable */
+    /* small internal spacing to avoid text touching edges */
+    padding: 0.5rem;
+    /* keep stacking simple — no special z-indexing required */
+}
