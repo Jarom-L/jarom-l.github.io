@@ -157,6 +157,81 @@ html, body {
     padding: 0.5rem;
     /* keep stacking simple — no special z-indexing required */
 }
+#pg6_textbox {
+    /* position relative so children can be placed inside normally */
+    position: relative;
+    /* use viewport height so the cover fills the window */
+    height: 20vh;
+    /* full width of the page */
+    width: 100%;
+    /* center children with flexbox (widely supported basic layout) */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    /* background color for the textbox */
+    background-color: black;
+    /* text color for the textbox */
+    color: white;
+    /* basic font size for the textbox */
+    font-size: 2rem;
+    /* serif font stack for the textbox */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* reset default margins so flex centering works predictably */
+    margin: 0; /* reset margins so flex centering is reliable */
+    /* small internal spacing to avoid text touching edges */
+    padding: 0.5rem;
+    /* keep stacking simple — no special z-indexing required */
+}
+#pg7_textbox {
+    /* position relative so children can be placed inside normally */
+    position: relative;
+    /* use viewport height so the cover fills the window */
+    height: 20vh;
+    /* full width of the page */
+    width: 100%;
+    /* center children with flexbox (widely supported basic layout) */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    /* background color for the textbox */
+    background-color: black;
+    /* text color for the textbox */
+    color: white;
+    /* basic font size for the textbox */
+    font-size: 2rem;
+    /* serif font stack for the textbox */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* reset default margins so flex centering works predictably */
+    margin: 0; /* reset margins so flex centering is reliable */
+    /* small internal spacing to avoid text touching edges */
+    padding: 0.5rem;
+    /* keep stacking simple — no special z-indexing required */
+}
+#pg8_textbox {
+    /* position relative so children can be placed inside normally */
+    position: relative;
+    /* use viewport height so the cover fills the window */
+    height: 20vh;
+    /* full width of the page */
+    width: 100%;
+    /* center children with flexbox (widely supported basic layout) */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    /* background color for the textbox */
+    background-color: black;
+    /* text color for the textbox */
+    color: white;
+    /* basic font size for the textbox */
+    font-size: 2rem;
+    /* serif font stack for the textbox */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* reset default margins so flex centering works predictably */
+    margin: 0; /* reset margins so flex centering is reliable */
+    /* small internal spacing to avoid text touching edges */
+    padding: 0.5rem;
+    /* keep stacking simple — no special z-indexing required */
+}
 
 /* Button Section */
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -345,6 +420,23 @@ html, body {
     background-image: url(pg.5_man.png);
 }
 
+/* Page 6 picture */
+#page6_picture {
+    /* prevent image from repeating and just fill screen once */
+    background-repeat: no-repeat;
+    background-size: contain; /* scale the image to fit within the container */
+    /* position relative so children can be placed inside normally */
+    position: relative;
+    /* use viewport height so the cover fills the window */
+    height: 80vh;
+    /* full width of the page */
+    width: 100%;
+    /* center children with flexbox (widely supported basic layout) */
+    display: flex;
+    align-items: center; /* vertical center */
+    justify-content: center; /* horizontal center */
+    /* background image for the cover soon */
+}
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Ensure the html/body occupy full height and have no default margin (no #root) */
 html, body {
