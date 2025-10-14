@@ -1,8 +1,5 @@
-/* animation section */
 
 
-
-/* animation section */
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* Ensure the html/body occupy full height and have no default margin (no #root) */
 html, body {
@@ -178,12 +175,17 @@ html, body {
     
 }
 #elipse_shape_outside {
-    background-color: red;
-    position: absolute;
+    background-color: red; /* visual debug color: remove or change for production */
+    position: absolute; /* absolute removes element from normal flow; if you want text wrap, use float instead */
+    /* clip-path: visually masks the element to an ellipse shape */
+    -webkit-clip-path: ellipse(23% 32% at 46% 65%); /* Safari fallback */
     clip-path: ellipse(23% 32% at 46% 65%);
+    /* shape-outside: only affects text wrapping when the element is floated */
     shape-outside: ellipse(23% 32% at 46% 65%);
+    /* explicit dimensions are required for shape-outside to compute correctly */
     height: 100vh;
     width: 100%;
+    z-index: 1; /* ensure the ellipse sits above the base image; increase if needed */
 }
 /* Full-viewport hero/cover using basic properties */
 #titlecover {
@@ -193,11 +195,13 @@ html, body {
     height: 100vh;
     /* full width of the page */
     width: 100%;
-    /* center children with flexbox (widely supported basic layout) */
-    display: flex;
-    align-items: center; /* vertical center */
-    justify-content: center; /* horizontal center */
-    /* background image for the cover */
+    /* use normal flow rather than flex so floated elements (shape-outside)
+       work correctly; floats don't behave as expected inside flex containers */
+    display: block;
+    /* spacing inside the cover so the floated circle has room */
+    padding: 4vw;
+    box-sizing: border-box;
+    /* background image for the cover (kept) */
     background-image: url(Screenshot_2025-09-18_210025-removebg-preview.png);
     /* prevent repeating the background image */
     background-repeat: no-repeat;
@@ -205,6 +209,39 @@ html, body {
     background-size: 30% auto;
     /* center the background image */
     background-position: center;
+}
+
+/* Circle used on the title cover to wrap the title text */
+/* Basic circular float used for text-wrapping on the title cover */
+#title_circle {
+    float: left;               /* must float for shape-outside to work */
+    width: 220px;              /* basic pixel size for broad compatibility */
+    height: 220px;             /* square that will be clipped into a circle */
+    margin: 24px 24px 24px 24px; /* breathing room between shape and text */
+    /* shape-outside defines the wrapping boundary; circle() is basic and widely supported */
+    -webkit-shape-outside: circle(110px at 110px 110px);
+    shape-outside: circle(110px at 110px 110px);
+    /* clip-path visually masks the floated element into a circle */
+    -webkit-clip-path: circle(110px at 110px 110px);
+    clip-path: circle(110px at 110px 110px);
+    background: rgba(200,50,50,0.95); /* visible color for testing; replace with image if desired */
+    /* if you'd like an image inside the circle, comment the background above and use:
+       background-image: url('your-image.png'); background-size: cover; background-position: center; */
+}
+
+/* Ensure the title text behaves as inline content that can wrap around floats */
+#titletext {
+    display: block; /* block-level container; paragraphs inside will wrap */
+    margin: 0;
+    padding: 24px 12px;
+    font-size: 28px; /* base size for readability */
+    line-height: 1.1;
+}
+
+/* Mobile fallback: stack the circle above the text on narrow screens */
+@media (max-width: 600px) {
+    #title_circle { float: none; display: block; margin: 12px auto; }
+    #titletext { padding: 12px; font-size: 18px; }
 }
 
 /* Page 2 picture, leaving the side bar */
@@ -438,8 +475,12 @@ html, body {
 }
 
 #pg1_textbox {
-    /* place this textbox on top of the page1_man image */
-    position: absolute; /* remove from normal flow so it can overlap the image */
+    /* NOTE: this textbox is currently absolutely positioned to overlap
+       the image. That prevents inline text from wrapping around floated
+       shapes. If you want the text to wrap around the ellipse, change
+       `position` to `relative` or `static` (i.e., remove absolute), and
+       ensure the ellipse uses float:left/right with shape-outside. */
+    position: absolute; /* current behavior: overlay box */
     top: 72vh; /* vertical placement (adjust as needed) */
     left: 50%; /* center horizontally */
     transform: translateX(-50%); /* perfect horizontal centering */
@@ -455,6 +496,11 @@ html, body {
     padding: 1rem; /* internal spacing */
     border-radius: 6px; /* soften the corners */
     z-index: 2; /* ensure it sits above the image */
+
+    /* Debugging tip: to switch to wrap-mode for testing, change the
+       rule above to `position: relative;` (or remove `position`) and
+       reload the page. Then inspect the floated ellipse element to
+       confirm `shape-outside` is applied in DevTools. */
 }
 #pg2_textbox {
     /* position relative so children can be placed inside normally */

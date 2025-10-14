@@ -12,8 +12,14 @@
     </style>
 </head>
 <body>
-    <div id="titletext">Coming of the Angels</div>
-    <div id="titlecover"></div>
+    <div id="titlecover">
+        <!-- floated circle that text will wrap around (basic div box) -->
+        <div id="title_circle" aria-hidden="true"></div>
+        <!-- title text should be normal flow content (paragraphs) so it wraps around the floated circle -->
+        <div id="titletext">
+            <p>Coming of the Angels</p>
+        </div>
+    </div>
     <a href="page1.html"><button id="Button_to_next_page">Next →</button></a>
 </body>
 </html>
